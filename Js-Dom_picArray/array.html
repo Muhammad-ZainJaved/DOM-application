@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pagal pan</title>
+</head>
+<style type="text/css">
+.showImg {
+	top : 0 ; 
+	left: 0 ;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+.hide {
+	visibility: hidden;
+}
+	
+</style>
+<body>
+	<div id="docId">
+
+	</div>
+	
+
+	<img src="" id="showImg">
+
+</body>
+<script type="text/javascript">
+	var show = function(param)
+	{
+		console.log('param',param);
+		var show = document.getElementById('showImg')
+		show.setAttribute('src',param.src);
+		show.setAttribute('class', 'showImg' )
+		show.setAttribute('onClick', 'hideImg(this)');
+
+	} 
+	var hideImg =  function(param){
+		var hide = document.getElementById(param.id);
+		hide.setAttribute('class', 'hide')
+
+	}
+	
+	// ARRAY OF OBJECTS
+	var picArray = [
+	 { name: 'a1' },
+	 { name: 'a2' },
+	 { name: 'a3' },
+	 { name: 'a4' } 
+	 ];
+	for(var i=0; i<picArray.length; i++)
+	{
+		var a = document.createElement("img");
+		a.setAttribute('src',picArray[i].name + ".png");
+		a.setAttribute('onclick', 'show(this)')
+	var b = document.getElementById('docId');
+		b.appendChild(a);
+		/*	console.log(a);
+		a.setAttribute('onClick',`getBig(${picArray[i]})`)
+		*/
+	}	
+</script>
+</html>
